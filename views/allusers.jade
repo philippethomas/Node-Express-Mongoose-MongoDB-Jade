@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  ul
+    each entry, i in entries
+      li #{entry.name} #{entry.age} #{entry.address}
+
+  a(href="/newuser")
+    button(type="button") Add User

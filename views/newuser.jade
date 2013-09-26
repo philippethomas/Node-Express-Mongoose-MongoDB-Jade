@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  form(action="adduser" method="post")
+    label(for="name")
+      input#name(name="name" placeholder="Name")
+    label(for="address")
+      input#address(name="address" placeholder="Address")
+    label(for="age")
+      input#age(name="age" placeholder="Age")
+    button(type="submit") Submit
