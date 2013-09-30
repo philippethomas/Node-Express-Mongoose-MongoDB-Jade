@@ -5,8 +5,23 @@ block content
   p Welcome to #{title}
 
   ul
-    each entry, i in entries
-      li #{entry.name} #{entry.age} #{entry.address}
+    each contact in docs
+      li #{contact.name} #{contact.age} #{contact.address}
 
   a(href="/newuser")
     button(type="button") Add User
+
+  h1 Edit User
+
+    form(action="edituser" method="post")
+      label(for="name")
+        input#name(name="name" placeholder="Name of person to be edited")
+
+      h3 Enter new information below
+      label(for="newName")
+        input#name(name="newName" placeholder="New Name")
+      label(for="newAddress")
+        input#address(name="newAddress" placeholder="New Address")
+      label(for="newAge")
+        input#age(name="newAge" placeholder="New Age")
+      button(type="submit") Submit

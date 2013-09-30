@@ -8,10 +8,7 @@ var routes = require('./routes');
 var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
-
 var mongo = require('mongodb');
-var monk = require('monk');
-var db = monk('localhost:27017/Nodester');
 
 var app = express();
 
@@ -34,8 +31,9 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/newuser', routes.newuser);
-app.get('/allusers', routes.allusers(db));
-app.post('/adduser', routes.adduser(db));
+app.get('/allusers', routes.allusers);
+app.post('/adduser', routes.adduser);
+app.post('/edituser', routes.edituser);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
